@@ -4,7 +4,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 32px;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -18,60 +17,63 @@
   --Light_red: hsl(0, 100%, 67%)
 }
 
-body{
+body {
+  height: 100vh; /* Set height to 100% of viewport height */
+  margin: 0; /* Remove any default margin */
+  overflow: hidden; /* Hide any overflow */
   background-color: var(--Light_grey);
 }
 
+
 main{
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  background-color: var(--Light_grey);
+  padding: 2rem 5em;
 }
 
 .container{
-  min-width: 500px;
-  margin-top: 3rem;
   background-color: var(--White);
-  padding: 1.5rem;
-  border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 100px;
+  padding: 2rem 3em;
 }
 
-form{
+form {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  width: 80%;
+  align-items: center;
 }
 
-.input-control{
+.input-control {
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  margin-right: 10px; /* Add margin between input controls */
 }
 
-label{
-  font-weight: 400;
-  font-size: .4rem;
+.input-control label {
+  margin-bottom: 5px;
   text-transform: uppercase;
+  font-weight: 400;
+  font-size: .7rem;
   color: var(--Smokey_grey);
 }
 
-input{
-  width: 120px;
-  padding: 0 10px;
-  border-radius: 10px;
-  outline: none!important;
-  border: 2px solid var(--Light_grey);
+.input-control input[type="number"] {
+  width: 100%;
+  padding: 1px 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  font-size: 32px;
 }
 
 .wrapper {
   display: flex;
   align-items: center;
-  width: 500px;
-  height: 100%;
+  position: relative;
+  margin: 2rem 0;
 }
 
 .line {
@@ -80,9 +82,9 @@ input{
   background-color: var(--Light_grey);
 }
 
-.circle {
-  height: 60px;
-  width: 60px;
+.circle{
+  height: 70px;
+  width: 70px;
   border-radius: 50%;
   background-color: var(--Purple);
   margin-left: auto;
@@ -94,19 +96,13 @@ input{
   border: none;
 }
 
-img{
-  transform: scale(0.8);
-}
-
 p{
-  font-weight: 800;
   font-size: 48px;
-  font-family: 'Poppins', sans-serif;
   font-style: italic;
+  font-weight: 800;
 }
 
 strong{
-  font-size: 48px;
   color: var(--Purple);
 }
 
@@ -122,27 +118,41 @@ input[type="number"] {
   --moz-appearance: textfield;
 }
 
-@media screen and (max-width: 475px) {
+@media screen and (min-width: 1000px) {
 
+  main{
+    padding: 2rem 10em;
+  }
 
- main{
-  transform: scale(0.7);
- }
+  form{
+    margin-right: 3em;
+  }
+  
+}
 
- form{
-    width: 100%;
- }
+@media screen and (max-width: 570px) {
 
- .wrapper{
-  margin: 3rem 0;
-  position: relative;
- }
+    main{
+      padding: 3rem .5rem;
+    }
 
- .circle{
-  position: absolute;
-  z-index: 999;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
- }
+    .container{
+      padding: 3rem 1rem;
+    }
+
+    .wrapper{
+      padding: 2rem 0;
+    }
+
+    .circle{
+      position: absolute;
+      z-index: 999;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 50px;
+      width: 50px;
+    }
+
+  
 }
