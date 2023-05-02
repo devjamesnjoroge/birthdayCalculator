@@ -1,13 +1,148 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap');
+
+*{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 32px;
+  font-family: 'Poppins', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+  --White: hsl(0, 0%, 100%);
+  --Off_white: hsl(0, 0%, 94%);
+  --Light_grey: hsl(0, 0%, 86%);
+  --Smokey_grey: hsl(0, 1%, 44%);
+  --Off_black: hsl(0, 0%, 8%);
+  --Purple: hsl(259, 100%, 65%);
+  --Light_red: hsl(0, 100%, 67%)
+}
+
+body{
+  background-color: var(--Light_grey);
+}
+
+main{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.container{
+  min-width: 500px;
+  margin-top: 3rem;
+  background-color: var(--White);
+  padding: 1.5rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 100px;
+}
+
+form{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.input-control{
+  display: flex;
+  flex-direction: column;
+}
+
+label{
+  font-weight: 400;
+  font-size: .4rem;
+  text-transform: uppercase;
+  color: var(--Smokey_grey);
+}
+
+input{
+  width: 120px;
+  padding: 0 10px;
+  border-radius: 10px;
+  outline: none!important;
+  border: 2px solid var(--Light_grey);
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 100%;
+}
+
+.line {
+  height: 1px;
+  width: 100%;
+  background-color: var(--Light_grey);
+}
+
+.circle {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: var(--Purple);
+  margin-left: auto;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+}
+
+img{
+  transform: scale(0.8);
+}
+
+p{
+  font-weight: 800;
+  font-size: 48px;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+}
+
+strong{
+  font-size: 48px;
+  color: var(--Purple);
+}
+
+/* Works for Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Works for Firefox */
+input[type="number"] {
+  --moz-appearance: textfield;
+}
+
+@media screen and (max-width: 475px) {
+
+
+ main{
+  transform: scale(0.7);
+ }
+
+ form{
+    width: 100%;
+ }
+
+ .wrapper{
+  margin: 3rem 0;
+  position: relative;
+ }
+
+ .circle{
+  position: absolute;
+  z-index: 999;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ }
 }
