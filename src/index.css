@@ -64,7 +64,7 @@ form {
   width: 100%;
   padding: 1px 5px;
   border: 1px solid #ccc;
-  border-radius: 3px;
+  border-radius: 10px;
   box-sizing: border-box;
   font-size: 32px;
 }
@@ -132,11 +132,16 @@ small{
 @media screen and (min-width: 1050px) {
 
   main{
-    padding: 2rem 10em;
+    padding: 3rem 11em;
   }
 
   form{
     margin-right: 3em;
+  }
+
+  p{
+    font-size: 64px;
+    line-height: 5rem;
   }
   
 }
@@ -164,6 +169,5 @@ small{
       height: 50px;
       width: 50px;
     }
-
   
 }
