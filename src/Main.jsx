@@ -10,29 +10,53 @@ function Main(){
     const [months, setMonths] = useState("--")
     const [years, setYears] = useState("--")
 
+    const [errorMessage, setErrorMessage] = useState({dateError:"",monthError:"",yearError:""})
+
+    const normalColor = 'hsl(0, 1%, 44%)'
+
+    const [active, setActive] = useState(normalColor)
+
     function validateDate(){
         const date = new Date(yearInput,monthInput-1,dayInput)
         const today = new Date()
         console.log(date)
 
         if (date.getFullYear() === parseInt(yearInput) && today.getFullYear() > yearInput){
-            console.log('valid year')
+            setActive(normalColor)
+            setErrorMessage([])
         } else {
-            console.log('invalid year')
+            const tempError = errorMessage
+            tempError.yearError = "Enter a valid year"
+            tempError.monthError = "Enter a valid month"
+            tempError.dateError = "Enter a valid date"
+            setErrorMessage(tempError)
+            setActive('red')
             return
         }
 
         if (date.getMonth() === monthInput-1){
-            console.log('valid month')
+            setActive(normalColor)
+            setErrorMessage([])
         } else {
-            console.log('invalid month')
+            const tempError = errorMessage
+            tempError.yearError = "Enter a valid year"
+            tempError.monthError = "Enter a valid month"
+            tempError.dateError = "Enter a valid date"
+            setErrorMessage(tempError)
+            setActive('red')
             return
         }
 
         if (date.getDate() === parseInt(dayInput)){
-            console.log('valid date')
+            setActive(normalColor)
+            setErrorMessage([])
         } else{
-            console.log('invalid date')
+            const tempError = errorMessage
+            tempError.yearError = "Enter a valid year"
+            tempError.monthError = "Enter a valid month"
+            tempError.dateError = "Enter a valid date"
+            setErrorMessage(tempError)
+            setActive('red')
             return
         }
 
@@ -59,16 +83,19 @@ function Main(){
            <div className="container">
            <form>
                 <div className="input-control">
-                    <label htmlFor="day">day</label>
+                    <label style={{color: active}} htmlFor="day">day</label>
                     <input type="number" id="day" value={dayInput} onChange={e => setDayInput(e.target.value)}/>
+                    <small>{errorMessage.dateError}</small>
                 </div>
                 <div className="input-control">
-                    <label htmlFor="month">month</label>
+                    <label style={{color: active}} htmlFor="month">month</label>
                     <input type="number" id="month" value={monthInput} onChange={e => setMonthInput(e.target.value)}/>
+                    <small>{errorMessage.monthError}</small>
                 </div>
                 <div className="input-control">
-                    <label htmlFor="year">year</label>
+                    <label style={{color: active}} htmlFor="year">year</label>
                     <input type="number" id="year" value={yearInput} onChange={e => setYearInput(e.target.value)}/>
+                    <small>{""}{errorMessage.yearError}</small>
                 </div>
             </form>
             <div className="wrapper">
